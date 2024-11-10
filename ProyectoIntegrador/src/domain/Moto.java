@@ -46,24 +46,21 @@ public class Moto extends Vehiculo { // "extends Vehiculo" simboliza que hereda 
     
     // inicializar los metodos abstractos
     @Override // señala que se esta sobreescribiendo un metodo abstracto
-    void arrancar() {
-        System.out.println("la moto está encendida");
+    String mostrarInfo() {
+        return "===== Moto =====\n" +
+                "Tipo: " + tipo_moto + "\n" +
+                "Marca: " + marca + "\n" +
+                "Modelo: " + modelo + "\n" +
+                "Año: " + anio + "\n" +
+                "=================";
     }
+       
     
-    @Override 
-    void detener() {
-        System.out.println("la moto está detenida");
-    }
-   
-    @Override 
-    void mostrarInfo() {
-        
-        System.out.println("especificaciones de la moto: ");
-        
-        System.out.println("tipo de moto: " + tipo_moto);
-        System.out.println("Marca: " + marca);
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Año: " + anio);
-        
-    }       
+    @Override
+    public String toString() {
+    return "Moto: " + marca + " " + modelo + " " + anio + ", tipo "+ tipo_moto;
+}
+
+    
+    
 }

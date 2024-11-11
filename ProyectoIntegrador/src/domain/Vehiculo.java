@@ -17,8 +17,6 @@ abstract class Vehiculo {
     }
 
 
-    abstract String arrancar();
-    abstract String detener();
     abstract String mostrarInfo();
 }
 

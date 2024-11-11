@@ -77,9 +77,6 @@ public class Frame extends JFrame implements ActionListener {
     
     public Frame(){
         
-        cardLayout = new CardLayout();
-        this.setLayout(cardLayout); // Configura el CardLayout en el JFrame
-        
         //-----------Sección del Panel Agregar Vehiculo--------
         
         // Establece botón volver atrás del panel menuAgregarVehiculo
@@ -244,94 +241,6 @@ public class Frame extends JFrame implements ActionListener {
         menuAgregarVehiculo.add(guardarVehiculoBoton);
         menuAgregarVehiculo.add(tipoMotoPanel);
         
-        
-        //--------------------Sección del Panel Mostrar Garage----------------------
-
-        // Boton de eliminar vehiculo
-        eliminarVehiculoBoton = new JButton("Eliminar");
-        
-        // Establecer el tamaño preferido
-        eliminarVehiculoBoton.setSize(eliminarVehiculoBoton.getPreferredSize());
-
-        // Posicionar JButton
-        eliminarVehiculoBoton.setBounds(10, 10, eliminarVehiculoBoton.getWidth(), eliminarVehiculoBoton.getHeight());
-        
-        // Agregar Action Listener al boton
-        eliminarVehiculoBoton.addActionListener(this);
-        
-        // Crear el JList y configurarlo para selección simple
-        jListVehiculos = new JList<>(vehiculos);
-        jListVehiculos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        // Agregar el JList al JScrollPane
-        JScrollPane garageScrollPane = new JScrollPane(jListVehiculos);
-        
-        // Establecer tamaño y limites de garageScrollPane
-        garageScrollPane.setSize(450, 400);
-        garageScrollPane.setBounds(10, 50, 450, 400);
-        
-        // Boton volver atrás del panel mostrarGarage
-        volverAtrasBotonMostrarGarage = new JButton("Volver atrás");
-        volverAtrasBotonMostrarGarage.addActionListener(this);
-        
-        // Obtener el tamaño preferido del boton volver atras
-        volverAtrasBotonMostrarGarage.setSize(volverAtrasBotonMostrarGarage.getPreferredSize());
-        
-        // Colocar el botón en la esquina superior derecha
-        volverAtrasBotonMostrarGarage.setBounds(
-                475 - volverAtrasBotonMostrarGarage.getWidth(), 
-                10, 
-                volverAtrasBotonMostrarGarage.getWidth(), 
-                volverAtrasBotonMostrarGarage.getHeight());
-        
-        
-        // Establece panel de Mostrar Garage
-        menuMostrarGarage = new JPanel();
-        menuMostrarGarage.setLayout(null);
-        
-        // Agregar Componentes al panel menuMostrarGarage
-        menuMostrarGarage.add(volverAtrasBotonMostrarGarage);
-        menuMostrarGarage.add(garageScrollPane);
-        menuMostrarGarage.add(eliminarVehiculoBoton);
-        
-        //------------------Sección del panel del Menu Principal-----------------------
-        
-        // Crear el panel principal con BorderLayout
-        menuPrincipal = new JPanel();
-        menuPrincipal.setLayout(null);
-
-        // Crear los botones
-        mostrarGarageBoton = new JButton("Mostrar Garage");
-        agregarVehiculoBoton = new JButton("Agregar Vehículo");
-
-        // Agregar botones al panel menuPrincipal
-        menuPrincipal.add(mostrarGarageBoton);
-        menuPrincipal.add(agregarVehiculoBoton);
-        
-        // Establecer el tamaño de los botones
-        mostrarGarageBoton.setSize(mostrarGarageBoton.getPreferredSize());
-        agregarVehiculoBoton.setSize(agregarVehiculoBoton.getPreferredSize());
-        
-        // Posiciona los botones en menuPrincipal
-        mostrarGarageBoton.setBounds(
-                100, 
-                200, 
-                mostrarGarageBoton.getWidth(), 
-                mostrarGarageBoton.getHeight());
-        agregarVehiculoBoton.setBounds(
-                100+mostrarGarageBoton.getWidth()+50, 
-                200, 
-                agregarVehiculoBoton.getWidth(), 
-                agregarVehiculoBoton.getHeight());
-        
-        // Agrega un ActionListener al botón para manejar eventos de acción
-        agregarVehiculoBoton.addActionListener(this);
-        mostrarGarageBoton.addActionListener(this);
-        
-        // Desactiva el enfoque visual de los botones
-        agregarVehiculoBoton.setFocusable(false);        
-        mostrarGarageBoton.setFocusable(false);
-        
         //--------------------Sección del Panel Mostrar Garage----------------------
 
         // Boton de eliminar vehiculo
@@ -421,6 +330,8 @@ public class Frame extends JFrame implements ActionListener {
         
         //----------------Sección de la Ventana del Programa---------------
         
+        cardLayout = new CardLayout();
+        this.setLayout(cardLayout); // Configura el CardLayout en el JFrame
         
         // Agrega los paneles al CardLayout con nombres únicos
         this.add(menuPrincipal, "MenuPrincipal");
